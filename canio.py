@@ -6,7 +6,6 @@
 import pygame
 from pygame.locals import *
 import sys
-from time import sleep
 # ---------------------------------------------------------------------
 # Constantes
 # ---------------------------------------------------------------------
@@ -16,8 +15,7 @@ FPS = 200
 BLACK = (0 ,0 ,0)
 WHITE = (255,255,255)
 LINEA = 10
-CLOCK = pygame.time.Clock()
-SCREEN = pygame.display.set_mode((WIDTH,HEIGHT))
+
 # ---------------------------------------------------------------------
 # Clases
 # ---------------------------------------------------------------------
@@ -142,8 +140,10 @@ def pause():
 # ---------------------------------------------------------------------
 def main():
     pygame.init()
+    global SCREEN, CLOCK
+    CLOCK = pygame.time.Clock()
+    SCREEN = pygame.display.set_mode((WIDTH,HEIGHT))
     pygame.display.set_caption("Ping&Pong")
-    #background_image = load_image('fondo_pong.png')
     bola = Bola()
     pala_jug = Pala(30)
     pala_cpu = Pala(WIDTH - 30)
@@ -173,7 +173,6 @@ def main():
         SCREEN.fill((0,0,0))
         pygame.draw.line(SCREEN, WHITE, ((WIDTH/2),0),((WIDTH/2),HEIGHT), (LINEA/4))
         SCREEN.blit(mensaje, ((WIDTH / 2 + 10), (HEIGHT - 20)))
-        #screen.blit(background_image, (0, 0))
         
         SCREEN.blit(p_jug, p_jug_rect)
         SCREEN.blit(p_cpu, p_cpu_rect)
