@@ -159,7 +159,8 @@ def main():
 	    if evento.type==pygame.KEYDOWN:
                 if evento.key==pygame.K_p:
 		    pause()
-        
+
+        SCREEN.fill(BLACK)
 	fuente = pygame.font.Font(None, 20)
         text = "Pulsa 'p' para Pausar o 'Escape' para Salir"
         mensaje = fuente.render(text, 1, WHITE)
@@ -170,7 +171,7 @@ def main():
 
         p_jug, p_jug_rect = texto(str(puntos[0]), WIDTH/4, 40)
         p_cpu, p_cpu_rect = texto(str(puntos[1]), WIDTH-WIDTH/4, 40)
-        SCREEN.fill((0,0,0))
+        
         pygame.draw.line(SCREEN, WHITE, ((WIDTH/2),0),((WIDTH/2),HEIGHT), (LINEA/4))
         SCREEN.blit(mensaje, ((WIDTH / 2 + 10), (HEIGHT - 20)))
         
